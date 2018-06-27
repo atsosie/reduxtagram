@@ -3,7 +3,7 @@ ACTION CREATORS EXPLANATION:
 
 These are functions you export/import between modules, and they generate action objects.
 Use these instead of creating inline action objects (dispatch( { key: value } )).
-Calling an action creator does not dispatch the action itself.
+Calling an action creator does not dispatch the action itself or update state.
 */
 
 // increment
