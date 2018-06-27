@@ -13,20 +13,27 @@ import PhotoGrid from './components/PhotoGrid';
 // Import React Router dependencies
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 /*
-We originally imported 'browserHistory' in order to get things working.
-This allows us to use Push State to change URLs without having to reload the page.
-'browserHistor' will be replaced by Redux.
+We import 'browserHistory' here and use it in <Router history={browserHistory}>
+in order to get things working up front, but it'll be replaced when we add Redux.
+It allows us to use Push State to change URLs without having to reload the page.
 */
+
+import { Provider } from 'react-redux';
+import store, { history } from './store';
 
 // Build a Router component
 const router = (
-  <Router history={browserHistory}>
-    <Route path="/" component={Main}>
-      <IndexRoute component={PhotoGrid} />
-      <Route path="/view/:postId" component={Single} />
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={Main}>
+        <IndexRoute component={PhotoGrid} />
+        <Route path="/view/:postId" component={Single} />
+      </Route>
+    </Router>
+  </Provider>
 );
+// The <Provider /> tag exposes our store to our actual application.
+// We edit <Router history={browserHistory}> by changing it to {history}.
 
 render(router, document.getElementById('root'));
 
