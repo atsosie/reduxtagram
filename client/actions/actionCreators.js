@@ -21,6 +21,7 @@ the identifier for which post needs its number of likes to be incremented.
 
 // add comment
 export function addComment(postId, author, comment) {
+  console.log('Dispatching add comment');
   return {
     type: 'ADD_COMMENT',
     postId,
