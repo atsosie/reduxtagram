@@ -31,10 +31,14 @@ export function addComment(postId, author, comment) {
 }
 
 // remove comment
-export function removeComment(postId, index) {
+export function removeComment(postId, idx) {
   return {
     type: 'REMOVE_COMMENT',
-    index,
+    idx,
     postId
   };
+  /*
+  It's important to use the same parameter names (postId, idx) both here and
+  in the reducer, otherwise the functions won't work properly.
+  */
 }
