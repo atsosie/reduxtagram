@@ -14,8 +14,11 @@ import PhotoGrid from './components/PhotoGrid';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 /*
 We import 'browserHistory' here and use it in <Router history={browserHistory}>
-in order to get things working up front, but it'll be replaced when we add Redux.
-It allows us to use Push State to change URLs without having to reload the page.
+to get things working at first, but it's replaced by <Router history={history}>
+when we add Redux.
+
+'browserHistory' allows us to use Push State to change URLs without
+having to reload the page.
 */
 
 import { Provider } from 'react-redux';
@@ -32,7 +35,7 @@ const router = (
     </Router>
   </Provider>
 );
-// The <Provider /> tag exposes our store to our actual application.
+// The <Provider /> tag exposes our store to the actual application.
 // We edit <Router history={browserHistory}> by changing it to {history}.
 
 render(router, document.getElementById('root'));
@@ -41,6 +44,7 @@ render(router, document.getElementById('root'));
 ROUTER EXPLANATION:
 
 The <Router /> is a component. That Router component needs a history object.
+
 Nested inside the Router is a container component (Main), which has child components
 (PhotoGrid) and (Single).
 
@@ -50,9 +54,10 @@ either {Photo-Grid} or {Single}.
 
 <Route path='/' component={Main}> ... this means {Main} is the top level
 
-<IndexRoute component={PhotoGrid} /> ... this means {PhotoGrid} is
-the default component to render if the path is just '/' (the index or homepage)
+<IndexRoute component={PhotoGrid} /> ... this means {PhotoGrid} is the default
+component to render if the path is just '/' (PhotoGrid is like the index or homepage)
 
-<Route path="/view/:postId" component={Single} /> ... this determines which
+<Route path="/view/:postId" component={Single} /> ... this determines which post to
+display in full-screen view or 'single' post view.
 
 */

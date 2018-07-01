@@ -55,7 +55,7 @@ export default Comments;
 
 /*
 One way to get data out of the input elements is by including refs.
-That's why we added ref="author" an re="comment".
+That's why we added ref="author" and ref="comment".
 
 We need a 'submit' button there, but we make it hidden so that users
 can just use the 'enter' key to submit the form.

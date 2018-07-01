@@ -4,7 +4,7 @@ import CSSTransitionGroup from 'react-addons-css-transition-group';
 
 const Photo = React.createClass({
   render() {
-    // dereference here to avoid repeating 'this.props...'
+    // de-reference here to avoid repeating 'this.props...'
     const { post, idx, comments } = this.props;
 
     return (
